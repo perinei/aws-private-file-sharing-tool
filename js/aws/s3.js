@@ -53,6 +53,7 @@ function showS3BucketContents() {
     }
 
     if (prefix === cognitoUser.username || prefix === 'shared') {
+        console.log(cognitoUser.username);
         _showS3BucketContents(prefix);
     } else {
         enableButton('viewS3BucketButton', 'View Contents')
