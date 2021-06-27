@@ -161,7 +161,7 @@ function uploadToS3() {
 
 function downloadLink(key) {
     urlToDisplay = '';
-    bucket = 'private-cognito-s3'
+    bucket = 'perinei-retail'
     var prefixFld = document.getElementById('bucketPrefix');
     var prefix = prefixFld.value;
 
@@ -301,7 +301,7 @@ function createHmac(to, file) {
 
 function sendEmailAuthenticate(to) {
     var sendFile = '';
-    bucket = 'private-cognito-s3'
+    bucket = 'perinei-retail'
     for (index = 0; index < x.length; ++index) {
         file = document.getElementById(x[index]).value;
         var hashInBase64 = createHmac(to, file);
@@ -340,7 +340,7 @@ function sendEmailAuthenticate(to) {
 
 function sendEmailUnauthenticate(to) {
     var sendFile = '';
-    bucket = 'private-cognito-s3'
+    bucket = 'perinei-retail'
     for (index = 0; index < x.length; ++index) {
         file = document.getElementById(x[index]).value;
         var hashInBase64 = createHmac(to, file);
