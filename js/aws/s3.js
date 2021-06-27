@@ -120,7 +120,7 @@ function _showResultOnPopup(textToDisplay) {
 
 function uploadToS3() {
     disableButton('uploadToS3')
-    var bucket = 'private-cognito-s3';
+    var bucket = 'perinei-retail';
 
     var prefixFld = document.getElementById('bucketPrefix');
     var prefix = prefixFld.value;
