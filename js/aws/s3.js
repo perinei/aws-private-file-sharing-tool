@@ -52,7 +52,7 @@ function showS3BucketContents() {
     //     return;
     // }
 
-    if (prefix === cognitoUser) {
+    if (cognitoUser !== null) {
         console.log(cognitoUser);
         _showS3BucketContents(cognitoUser);
     } else {
