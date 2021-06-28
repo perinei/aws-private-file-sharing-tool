@@ -46,7 +46,13 @@ function init() {
         console.log("v1:"+false);
     }
 
-    _makeAWSCredentials(idToken)
+    AWS.config.credentials = _makeAWSCredentials(idToken);
+
+    console.log(AWS.config.credentials.accessKeyId);
+    console.log(AWS.config.credentials.secretAccessKey);
+    console.log(AWS.config.credentials.sessionToken);
+
+
 
 
     // Load cognito User from local storage
