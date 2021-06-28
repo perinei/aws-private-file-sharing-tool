@@ -32,8 +32,8 @@ function init() {
 
     if (paramters.has('id_token')) {
         console.log(true);
-        var idToken = paramters.get('id_token');
-        console.log(idToken);
+        var idTokenJwt = paramters.get('id_token');
+        console.log(idTokenJwt);
     } else {
         console.log("v1:"+false);
     }
@@ -46,11 +46,42 @@ function init() {
         console.log("v1:"+false);
     }
 
-    AWS.config.credentials = _makeAWSCredentials(idToken);
+    let url = 'cognito-idp.' + 'identity pool region' + '.amazonaws.com/' + 'your user pool id';
+    let logins = {};
 
-    console.log(AWS.config.credentials.accessKeyId);
-    console.log(AWS.config.credentials.secretAccessKey);
-    console.log(AWS.config.credentials.sessionToken);
+    logins[url] = idTokenJwt; // <- the one obtained before
+
+    let params = {
+    IdentityPoolId: awsConfig.identityPoolId, 
+    Logins: logins
+    };
+
+    let creds = new AWS.CognitoIdentityCredentials(params);
+
+
+    AWS.config.region = awsConfig.regionName;
+    AWS.config.credentials = creds;
+
+    creds.get(function (err) {
+        if (!err) {
+            console.log("returned without error"); // <-- this gets called!!!
+
+            // and the values are correctly set!
+            var accessKeyId = AWS.config.credentials.accessKeyId;
+            var secretAccessKey = AWS.config.credentials.secretAccessKey;
+            var sessionToken = AWS.config.credentials.sessionToken;
+            consolelog(accessKeyId);
+            consolelog(secretAccessKey);
+            consolelog(sessionToken);
+
+        }
+        else{
+            console.log("returned with error"); // <-- might get called if something is missing, anyways self-descriptive. 
+            console.log(err);
+        }
+    });
+
+
 
 
 
