@@ -120,7 +120,7 @@ function _showResultOnPopup(textToDisplay) {
 
 function uploadToS3() {
     disableButton('uploadToS3')
-    var bucket = 'perinei-retail';
+    var bucket = awsConfig.bucket;
 
     var prefixFld = document.getElementById('bucketPrefix');
     var prefix = prefixFld.value;
@@ -161,7 +161,7 @@ function uploadToS3() {
 
 function downloadLink(key) {
     urlToDisplay = '';
-    bucket = 'perinei-retail'
+    bucket = awsConfig.bucket
     var prefixFld = document.getElementById('bucketPrefix');
     var prefix = prefixFld.value;
 
@@ -301,7 +301,7 @@ function createHmac(to, file) {
 
 function sendEmailAuthenticate(to) {
     var sendFile = '';
-    bucket = 'perinei-retail'
+    bucket = awsConfig.bucket
     for (index = 0; index < x.length; ++index) {
         file = document.getElementById(x[index]).value;
         var hashInBase64 = createHmac(to, file);
@@ -340,7 +340,7 @@ function sendEmailAuthenticate(to) {
 
 function sendEmailUnauthenticate(to) {
     var sendFile = '';
-    bucket = 'perinei-retail'
+    bucket = awsConfig.bucket
     for (index = 0; index < x.length; ++index) {
         file = document.getElementById(x[index]).value;
         var hashInBase64 = createHmac(to, file);
