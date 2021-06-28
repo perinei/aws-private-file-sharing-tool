@@ -70,9 +70,9 @@ function init() {
             var accessKeyId = AWS.config.credentials.accessKeyId;
             var secretAccessKey = AWS.config.credentials.secretAccessKey;
             var sessionToken = AWS.config.credentials.sessionToken;
-            consolelog(accessKeyId);
-            consolelog(secretAccessKey);
-            consolelog(sessionToken);
+            console.log(accessKeyId);
+            console.log(secretAccessKey);
+            console.log(sessionToken);
 
         }
         else{
