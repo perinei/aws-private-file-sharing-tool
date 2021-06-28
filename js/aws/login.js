@@ -74,7 +74,9 @@ function init() {
             console.log(accessKeyId);
             console.log(secretAccessKey);
             console.log(sessionToken);
-            showMenuDiv(true);
+            cognitoUser = idTokenJwt.sub;
+
+            
 
         }
         else{
