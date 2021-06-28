@@ -19,22 +19,6 @@
       <!-- <script src="node_modules/crypto-js/crypto-js.js"></script> -->
    </head>
    <body onload="init()">
-      <script>
-         var query = window.location.search;
-         console.log(query);
-         var paramters = new URLSearchParams(query);
-
-         if (paramters.has('code')) {
-            console.log(true);
-            var searchParam = paramters.get('code');
-            console.log(searchParam);
-         } else {
-            console.log(false);
-         }
-
-
-
-      </script>
       <!-- Div Showing Login Page -->
       <div class="container" style="display:none" id="loginDiv">
          <h3><a href="https://retail.auth.us-east-1.amazoncognito.com/login?client_id=30r03gkfc6s448eqgrautmdmj9&response_type=token&scope=aws.cognito.signin.user.admin+email+openid&redirect_uri=https://master.d2eze0fwqc9li6.amplifyapp.com/index.html">Click here to login</a></h3>

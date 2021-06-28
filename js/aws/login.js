@@ -24,6 +24,28 @@ function _makeUserPool() {
 function init() {
     AWS.config.region = awsConfig.regionName;
 
+    // create by Adilson Perinei
+    var query = window.location.hash;
+    console.log(query);
+    myhash = query.replace('#','?');
+    var paramters = new URLSearchParams(myhash);
+
+    if (paramters.has('id_token')) {
+        console.log(true);
+        var idToken = paramters.get('id_token');
+        console.log(idToken);
+    } else {
+        console.log("v1:"+false);
+    }
+
+    if (paramters.has('access_token')) {
+        console.log(true);
+        var access_token = paramters.get('access_token');
+        console.log(access_token);
+    } else {
+        console.log("v1:"+false);
+    }
+
 
     // Load cognito User from local storage
     var userPool = _makeUserPool();
