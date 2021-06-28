@@ -47,10 +47,10 @@ function showS3BucketContents() {
     // console.log(cognitoUser.username);
 
 
-    if (prefix === '') {
-        _showResultOnPopup("Please specify Prefix");
-        return;
-    }
+    // if (prefix === '') {
+    //     _showResultOnPopup("Please specify Prefix");
+    //     return;
+    // }
 
     if (prefix === cognitoUser) {
         console.log(cognitoUser);
