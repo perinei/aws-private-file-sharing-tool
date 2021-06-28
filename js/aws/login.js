@@ -41,6 +41,7 @@ function init() {
     var idTokenJwt = jwt_decode(idToken);
     console.log(idTokenJwt);
     console.log("email:" + idTokenJwt.email);
+    console.log("email:" + idTokenJwt.sub);
 
     if (paramters.has('access_token')) {
         console.log(true);
