@@ -52,9 +52,9 @@ function showS3BucketContents() {
         return;
     }
 
-    if (prefix === cognitoUser || prefix === 'shared') {
+    if (prefix === cognitoUser) {
         console.log(cognitoUser);
-        _showS3BucketContents(prefix);
+        _showS3BucketContents(cognitoUser);
     } else {
         enableButton('viewS3BucketButton', 'View Contents')
         alert("Access Denied!! Please specify your correct folder name!!");
