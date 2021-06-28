@@ -32,11 +32,14 @@ function init() {
 
     if (paramters.has('id_token')) {
         console.log(true);
-        var idTokenJwt = paramters.get('id_token');
-        console.log(idTokenJwt);
+        var idToken = paramters.get('id_token');
+        console.log(idToken);
     } else {
         console.log("v1:"+false);
     }
+
+    var jtw = jwt_decode(idtoken);
+    console.log(jtw);
 
     if (paramters.has('access_token')) {
         console.log(true);
@@ -49,7 +52,7 @@ function init() {
     let url = 'cognito-idp.' + 'identity pool region' + '.amazonaws.com/' + 'your user pool id';
     let logins = {};
 
-    someVar = idTokenJwt; // <- the one obtained before
+    someVar = jwt; // <- the one obtained before
 
     let params = {
         IdentityPoolId: awsConfig.identityPoolId, 
