@@ -20,7 +20,12 @@
    </head>
    <body onload="init()">
       <script>
-         if (paramters.has('oranges')) {
+         var query = window.location.search;
+         console.log(query);
+         var paramters = new URLSearchParams(query);
+         var searchParam = paramters.get('id_token');
+         console.log(searchParam);
+         if (paramters.has('id_token')) {
             console.log(true);
          } else {
             console.log(false);
