@@ -153,6 +153,7 @@ function uploadToS3() {
         } else {
             console.log(data.key + ' Uploaded at ' + data.Location);
             alert(data.key + ' Uploaded at ' + data.Location);
+            showS3BucketContents();
         }
 
         enableButton('uploadToS3', 'Upload');
