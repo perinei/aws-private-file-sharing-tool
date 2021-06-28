@@ -58,7 +58,6 @@ function init() {
         }
     });
 
-
     AWS.config.region = awsConfig.regionName;
     AWS.config.credentials = creds;
 
@@ -73,6 +72,7 @@ function init() {
             console.log(accessKeyId);
             console.log(secretAccessKey);
             console.log(sessionToken);
+            showMenuDiv(true);
 
         }
         else{
@@ -86,44 +86,46 @@ function init() {
 
 
 
-    // Load cognito User from local storage
-    var userPool = _makeUserPool();
-    cognitoUser = userPool.getCurrentUser();
+    // // Load cognito User from local storage
+    // var userPool = _makeUserPool();
+    // console.log("userPool:" + userPool);
+    // cognitoUser = userPool.getCurrentUser();
+    // console.log("cognitoUser: " + cognitoUser)
 
-    // If not Found, show login page
-    if (cognitoUser == null) {
-        showLoginDiv(false);
-        showMenuDiv(true);
-        return;
-    }
+    // // If not Found, show login page
+    // if (cognitoUser == null) {
+    //     showLoginDiv(true);
+    //     showMenuDiv(false);
+    //     return;
+    // }
 
 
-    // Load Session from Local storage if found
-    cognitoUser.getSession(function(err, session) {
-        if (err) {
-            alert(err);
-            return;
-        }
+    // // Load Session from Local storage if found
+    // cognitoUser.getSession(function(err, session) {
+    //     if (err) {
+    //         alert(err);
+    //         return;
+    //     }
 
-        console.log('session validity: ' + session.isValid());
-        console.log('ID Token: ' + session.idToken.jwtToken);
+    //     console.log('session validity: ' + session.isValid());
+    //     console.log('ID Token: ' + session.idToken.jwtToken);
 
-        // Set Credentials within AWS Config to access other AWS services
-        var idToken = session.idToken.jwtToken;
-        AWS.config.credentials = _makeAWSCredentials(idToken);
-        console.log(AWS.config.credentials)
+    //     // Set Credentials within AWS Config to access other AWS services
+    //     var idToken = session.idToken.jwtToken;
+    //     AWS.config.credentials = _makeAWSCredentials(idToken);
+    //     console.log(AWS.config.credentials)
 
-        // Refresh the credentials - in case the session has expired
-        AWS.config.credentials.get(function(err) {
-            if (err) {
-                alert(err);
-            }
-        });
-    });
-    _enableMfa();
-    // if user is logged IN, show Menu
-    showMenuDiv(true);
-    showLoginDiv(false);
+    //     // Refresh the credentials - in case the session has expired
+    //     AWS.config.credentials.get(function(err) {
+    //         if (err) {
+    //             alert(err);
+    //         }
+    //     });
+    // });
+    // _enableMfa();
+    // // if user is logged IN, show Menu
+    // showMenuDiv(true);
+    // showLoginDiv(false);
 }
 
 
