@@ -75,7 +75,7 @@ function init() {
             console.log(secretAccessKey);
             console.log(sessionToken);
             cognitoUser = idTokenJwt.sub;
-            showS3BucketContents();
+        
 
             
 
