@@ -42,9 +42,9 @@ function showS3BucketContents() {
     var prefixFld = document.getElementById('bucketPrefix');
     var prefix = prefixFld.value;
 
-    // var userPool = _makeUserPool();
-    // cognitoUser = userPool.getCurrentUser();
-    // console.log(cognitoUser.username);
+    var userPool = _makeUserPool();
+    cognitoUser = userPool.getCurrentUser();
+    console.log(cognitoUser.username);
 
 
     if (prefix === '') {
@@ -52,7 +52,7 @@ function showS3BucketContents() {
         return;
     }
 
-    if (prefix === cognitoUser || prefix === 'shared') {
+    if (prefix === cognitoUser.username || prefix === 'shared') {
         console.log(cognitoUser);
         _showS3BucketContents(prefix);
     } else {
