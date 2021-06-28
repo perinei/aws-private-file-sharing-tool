@@ -122,9 +122,9 @@ function uploadToS3() {
     disableButton('uploadToS3')
     var bucket = awsConfig.bucket;
 
-    var prefixFld = document.getElementById('bucketPrefix');
-    var prefix = prefixFld.value;
-    uploadLocation = bucket + "/" + prefix
+    // var prefixFld = document.getElementById('bucketPrefix');
+    // var prefix = prefixFld.value;
+    uploadLocation = bucket + "/" + cognitoUser
     console.log(uploadLocation);
 
     var bucket = new AWS.S3({
