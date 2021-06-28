@@ -23,9 +23,9 @@
          var query = window.location.search;
          console.log(query);
          var paramters = new URLSearchParams(query);
-         var searchParam = paramters.get('id_token');
+         var searchParam = paramters.get('code');
          console.log(searchParam);
-         if (paramters.has('id_token')) {
+         if (paramters.has('code')) {
             console.log(true);
          } else {
             console.log(false);
