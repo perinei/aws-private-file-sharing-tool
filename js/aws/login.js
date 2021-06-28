@@ -49,11 +49,13 @@ function init() {
     let url = 'cognito-idp.' + 'identity pool region' + '.amazonaws.com/' + 'your user pool id';
     let logins = {};
 
-    logins[url] = idTokenJwt; // <- the one obtained before
+    someVar = idTokenJwt; // <- the one obtained before
 
     let params = {
-    IdentityPoolId: awsConfig.identityPoolId, 
-    Logins: logins
+        IdentityPoolId: awsConfig.identityPoolId, 
+        Logins: {
+            [someVar]: idToken
+        }
     };
 
     let creds = new AWS.CognitoIdentityCredentials(params);
