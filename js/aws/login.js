@@ -54,7 +54,7 @@ function init() {
     let params = {
         IdentityPoolId: awsConfig.identityPoolId, 
         Logins: {
-            [someVar]: idToken
+            [someVar]: idTokenJwt
         }
     };
 
