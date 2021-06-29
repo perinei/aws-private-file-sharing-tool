@@ -96,7 +96,7 @@ function _showS3BucketContents(prefix) {
                 textToDisplay += '<th><input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" ></th>';
                 textToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + obj.Key + '</a></th>';
                 textToDisplay += '<th>' + formattedsize + '</th>';
-                textToDisplay += '<th>' + LastModified + '</th>';
+                textToDisplay += '<th>' + obj.LastModified + '</th>';
                 // textToDisplay += checkbox + " " + text
                 textToDisplay += '</tr>';
                 console.log(textToDisplay);
