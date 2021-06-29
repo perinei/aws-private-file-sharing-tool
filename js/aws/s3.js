@@ -93,8 +93,9 @@ function _showS3BucketContents(prefix) {
                 textToDisplay += '<tr>';
                 size = obj.Size
                 formattedsize = formatBytes(size)
-                textToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + obj.Key + "</a>" + " " + formattedsize + "</th>";
                 textToDisplay += '<th><input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" ></th>';
+                textToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + obj.Key + '</a></th>';
+                textToDisplay += '<th>' + formattedsize + '</th>';
                 // textToDisplay += checkbox + " " + text
                 textToDisplay += '</tr>';
                 console.log(textToDisplay);
