@@ -71,6 +71,7 @@ function formatBytes(bytes, decimals) {
 }
 
 function _showS3BucketContents(prefix) {
+    prefix = 'cognito/retail_app_client/' + prefix;
     var bucket = awsConfig.bucket;
     var bucket = new AWS.S3({
         params: {
