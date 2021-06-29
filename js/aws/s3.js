@@ -144,6 +144,7 @@ function uploadToS3() {
 
     var files = document.getElementById('photoupload').files;
     if (!files.length) {
+        enableButton('uploadToS3', 'Upload');
         return alert('Please choose a file to upload first.');
     }
     var file = files[0];
