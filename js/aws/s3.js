@@ -96,7 +96,7 @@ function _showS3BucketContents(prefix) {
                 let filename = fullfilename.split('/');
                 formattedsize = formatBytes(size)
                 textToDisplay += '<th><input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" ></th>';
-                textToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + filename[1] + "'" + ')";>' + obj.Key + '</a></th>';
+                textToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + filename[1] + '</a></th>';
                 textToDisplay += '<th>' + formattedsize + '</th>';
                 textToDisplay += '<th>' + obj.LastModified + '</th>';
                 // textToDisplay += checkbox + " " + text
