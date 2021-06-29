@@ -38,7 +38,7 @@ function validatePassword() {
 }
 
 function showS3BucketContents() {
-    disableButton('viewS3BucketButton')
+    // disableButton('viewS3BucketButton')
     var prefixFld = document.getElementById('bucketPrefix');
     var prefix = prefixFld.value;
 
@@ -56,7 +56,7 @@ function showS3BucketContents() {
         console.log(cognitoUser);
         _showS3BucketContents(cognitoUser);
     } else {
-        enableButton('viewS3BucketButton', 'View Contents')
+        // enableButton('viewS3BucketButton', 'View Contents')
         alert("Access Denied!! Please specify your correct folder name!!");
     }
 }
@@ -114,7 +114,7 @@ function _showS3BucketContents(prefix) {
 
 
 function _showResultOnPopup(textToDisplay) {
-    enableButton('viewS3BucketButton', 'View Contents')
+    // enableButton('viewS3BucketButton', 'View Contents')
     document.getElementById("output").innerHTML = textToDisplay
 }
 
