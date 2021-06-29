@@ -103,7 +103,7 @@ function _showS3BucketContents(prefix) {
                 textToDisplay += '</tr>';
                 console.log(textToDisplay);
                 count++;
-                if (count >= 10) {
+                if (count >= 5) {
                     return;
                 }
             });
@@ -112,7 +112,7 @@ function _showS3BucketContents(prefix) {
             if (count == 0)
                 textToDisplay = "You haven't uploaded anything yet.";
             else
-                textToDisplay = "Files in S3 Bucket (upto 10 only): <br>" + textToDisplay;
+                textToDisplay = "Files in S3 Bucket : <br>" + textToDisplay;
         }
 
         _showResultOnPopup(textToDisplay);
