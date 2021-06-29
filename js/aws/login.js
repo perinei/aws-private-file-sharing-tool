@@ -279,10 +279,22 @@ function _callbackOnAWSForcePasswdChange(userAttributes, requiredAttributes) {
 
 function onLogout() {
     AWS.config.credentials = null;
-    xmlHttp.open( "GET", 'GET https://retail.auth.us-east-1.amazoncognito.com/logout?client_id=' + awsConfig.clientId +'&logout_uri=https://globo.com', false ); // false for synchronous request
-    xmlHttp.send( null );
-    console.log(xmlHttp.responseText);
-    return xmlHttp.responseText;
+
+    const options = {
+        method: 'GET'
+    };
+    // console.log('call fetch');
+    endpointCE = 'GET https://retail.auth.us-east-1.amazoncognito.com/logout?client_id=' + awsConfig.clientId +'&logout_uri=https://globo.com';
+    const responseCE = await fetch(endpointCE, options);
+    
+    
+    if (!responseCE.ok) {
+        // document.getElementById("submitBTNdiv").innerHTML = '<button class="button" id="submitBTN" onclick="loginFNC()">Submit</button>';
+        throw Error(responseCE.statusText);
+    } else {
+        console.log(responseCE);
+    }
+
 
 //     if (cognitoUser == null) {
 //         alert('user not logged in');
