@@ -278,22 +278,28 @@ function _callbackOnAWSForcePasswdChange(userAttributes, requiredAttributes) {
 
 
 function onLogout() {
-    if (cognitoUser == null) {
-        alert('user not logged in');
-        return;
-    }
+    AWS.config.credentials = null;
+    xmlHttp.open( "GET", 'GET https://retail.auth.us-east-1.amazoncognito.com/logout?client_id=' + awsConfig.clientId +'&logout_uri=https://globo.com', false ); // false for synchronous request
+    xmlHttp.send( null );
+    console.log(xmlHttp.responseText);
+    return xmlHttp.responseText;
 
-    cognitoUser.signOut();
-    cognitoUser = null;
-    showLoginDiv(true);
-    showMenuDiv(false);
-    console.log('Signed Out');
-}
+//     if (cognitoUser == null) {
+//         alert('user not logged in');
+//         return;
+//     }
 
-function registerinit() {
-    showMenuDiv(false);
-    showLoginDiv(true);
-    document.getElementById("register").disabled = true;
+//     cognitoUser.signOut();
+//     cognitoUser = null;
+//     showLoginDiv(true);
+//     showMenuDiv(false);
+//     console.log('Signed Out');
+// }
+
+// function registerinit() {
+//     showMenuDiv(false);
+//     showLoginDiv(true);
+//     document.getElementById("register").disabled = true;
 }
 
 function register() {
