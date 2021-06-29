@@ -76,6 +76,12 @@ function init() {
             console.log(sessionToken);
             cognitoUser = idTokenJwt.sub;
             showS3BucketContents();
+
+            // Load cognito User from local storage
+            var userPool = _makeUserPool();
+            console.log("userPool:" + userPool);
+            cognitoUser1 = userPool.getCurrentUser();
+            console.log("cognitoUser1: " + cognitoUser1)
         
 
             
@@ -92,11 +98,7 @@ function init() {
 
 
 
-    // // Load cognito User from local storage
-    // var userPool = _makeUserPool();
-    // console.log("userPool:" + userPool);
-    // cognitoUser = userPool.getCurrentUser();
-    // console.log("cognitoUser: " + cognitoUser)
+
 
     // // If not Found, show login page
     // if (cognitoUser == null) {
