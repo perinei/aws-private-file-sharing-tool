@@ -88,7 +88,7 @@ function _showS3BucketContents(prefix) {
             textToDisplay = 'ERROR While Fetching Bucket List\n\n' + err;
         } else {
             var count = 0;
-            textToDisplay +='<table style="width:100%" border=1>';
+            textToDisplay +='<table style="width:100%" border=2>';
             data.Contents.forEach(function(obj) {
                 textToDisplay += '<tr>';
                 size = obj.Size
