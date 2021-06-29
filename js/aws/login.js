@@ -278,28 +278,28 @@ function _callbackOnAWSForcePasswdChange(userAttributes, requiredAttributes) {
 
 
 function onLogout() {
-    AWS.config.credentials = null;
+    // AWS.config.credentials = null;
 
-    const options = {
-        method: 'GET'
-    };
-    // console.log('call fetch');
-    endpointCE = 'GET https://retail.auth.us-east-1.amazoncognito.com/logout?client_id=' + awsConfig.clientId +'&logout_uri=https://globo.com';
-    const responseCE = await fetch(endpointCE, options);
+    // const options = {
+    //     method: 'GET'
+    // };
+    // // console.log('call fetch');
+    // endpointCE = 'GET https://retail.auth.us-east-1.amazoncognito.com/logout?client_id=' + awsConfig.clientId +'&logout_uri=https://globo.com';
+    // const responseCE = await fetch(endpointCE, options);
     
     
-    if (!responseCE.ok) {
-        // document.getElementById("submitBTNdiv").innerHTML = '<button class="button" id="submitBTN" onclick="loginFNC()">Submit</button>';
-        throw Error(responseCE.statusText);
-    } else {
-        console.log(responseCE);
+    // if (!responseCE.ok) {
+    //     // document.getElementById("submitBTNdiv").innerHTML = '<button class="button" id="submitBTN" onclick="loginFNC()">Submit</button>';
+    //     throw Error(responseCE.statusText);
+    // } else {
+    //     console.log(responseCE);
+    // }
+
+
+    if (cognitoUser == null) {
+        alert('user not logged in');
+        return;
     }
-
-
-//     if (cognitoUser == null) {
-//         alert('user not logged in');
-//         return;
-//     }
 
 //     cognitoUser.signOut();
 //     cognitoUser = null;
