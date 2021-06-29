@@ -88,18 +88,22 @@ function _showS3BucketContents(prefix) {
             textToDisplay = 'ERROR While Fetching Bucket List\n\n' + err;
         } else {
             var count = 0;
+            textToDisplay +='<table style="width:100%" border=1>';
             data.Contents.forEach(function(obj) {
+                textToDisplay += '<tr>';
                 size = obj.Size
                 formattedsize = formatBytes(size)
-                text = '<a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + obj.Key + "</a>" + " " + formattedsize + "<br>"
-                checkbox = '<input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" >'
-                textToDisplay += checkbox + " " + text
+                textToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + obj.Key + "</a>" + " " + formattedsize + "</th>";
+                textToDisplay += '<th><input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" ></th>';
+                // textToDisplay += checkbox + " " + text
+                textToDisplay += '</tr>';
                 console.log(textToDisplay);
                 count++;
                 if (count >= 10) {
                     return;
                 }
             });
+            textToDisplay += '</table>';
 
             if (count == 0)
                 textToDisplay = "You haven't uploaded anything yet.";

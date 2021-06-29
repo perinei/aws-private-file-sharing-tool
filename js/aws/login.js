@@ -1,14 +1,14 @@
 var cognitoUser;
 
-function _makeAWSCredentials(idToken) {
-    var someVar = 'cognito-idp.' + awsConfig.regionName + '.amazonaws.com/' + awsConfig.userPoolId;
-    return new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: awsConfig.identityPoolId,
-        Logins: {
-            [someVar]: idToken
-        }
-    });
-}
+// function _makeAWSCredentials(idToken) {
+//     var someVar = 'cognito-idp.' + awsConfig.regionName + '.amazonaws.com/' + awsConfig.userPoolId;
+//     return new AWS.CognitoIdentityCredentials({
+//         IdentityPoolId: awsConfig.identityPoolId,
+//         Logins: {
+//             [someVar]: idToken
+//         }
+//     });
+// }
 
 
 function _makeUserPool() {
@@ -77,11 +77,11 @@ function init() {
             cognitoUser = idTokenJwt.sub;
             showS3BucketContents();
 
-            // // Load cognito User from local storage
-            // var userPool = _makeUserPool();
-            // console.log("userPool:" + userPool);
-            // cognitoUser1 = userPool.getCurrentUser();
-            // console.log("cognitoUser1: " + cognitoUser1);
+            // Load cognito User from local storage
+            var userPool = _makeUserPool();
+            console.log("userPool:" + userPool);
+            cognitoUser1 = userPool.getCurrentUser();
+            console.log("cognitoUser1: " + cognitoUser1);
         
 
             
