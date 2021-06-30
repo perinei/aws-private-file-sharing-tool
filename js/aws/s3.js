@@ -113,14 +113,18 @@ function _showS3BucketContents() {
             });
             
 
-            if (count == 0)
+            if (count == 0) {
                 textToDisplay = "You haven't uploaded anything yet.";
+            }
+                
             else
+            {
                 // textToDisplay ='<table class="table" style="width:100%" border=2>';
                 textToDisplay = '<table class="table">';
                 textToDisplay += "<thead><tr><th>index</th><th>File Name</th><th>size</th><th>Date/time</th></tr></thead>";
                 textToDisplay += ctextToDisplay;
                 textToDisplay += '</table>';
+            }
 
         }
 
