@@ -113,7 +113,7 @@ function _showS3BucketContents() {
             if (count == 0)
                 textToDisplay = "You haven't uploaded anything yet.";
             else
-                textToDisplay = "Files in S3 Bucket : <br>" + textToDisplay;
+                textToDisplay = "<tr><th>File Name</th><th>size</th><th>Date/time</th></tr>" + textToDisplay;
         }
 
         _showResultOnPopup(textToDisplay);
