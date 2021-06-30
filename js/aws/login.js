@@ -79,7 +79,7 @@ function init() {
     AWS.config.region = awsConfig.regionName;
     AWS.config.credentials = creds;
     console.log('---------Identity ID --------------')
-    console.log(AWS.config.credentials.identityID);
+    console.log(AWS.config.credentials.identityId);
 
     creds.get(function (err) {
         if (!err) {
