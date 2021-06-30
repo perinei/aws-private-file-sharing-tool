@@ -89,31 +89,35 @@ function _showS3BucketContents() {
             textToDisplay = 'ERROR While Fetching Bucket List\n\n' + err;
         } else {
             var count = 0;
-            textToDisplay +='<table style="width:100%" border=2>';
+            
             data.Contents.forEach(function(obj) {
-                textToDisplay += '<tr>';
+                ctextToDisplay += '<tr>';
                 size = obj.Size
                 let fullfilename = obj.Key;
                 let filename = fullfilename.split('/');
                 formattedsize = formatBytes(size)
-                textToDisplay += '<th><input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" ></th>';
-                textToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + filename[2] + '</a></th>';
-                textToDisplay += '<th>' + formattedsize + '</th>';
-                textToDisplay += '<th>' + obj.LastModified + '</th>';
+                ctextToDisplay += '<th><input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" ></th>';
+                ctextToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + filename[2] + '</a></th>';
+                ctextToDisplay += '<th>' + formattedsize + '</th>';
+                ctextToDisplay += '<th>' + obj.LastModified + '</th>';
                 // textToDisplay += checkbox + " " + text
-                textToDisplay += '</tr>';
+                ctextToDisplay += '</tr>';
                 console.log(textToDisplay);
                 count++;
                 if (count >= 5) {
                     return;
                 }
             });
-            textToDisplay += '</table>';
+            
 
             if (count == 0)
                 textToDisplay = "You haven't uploaded anything yet.";
             else
-                textToDisplay = "<tr><th>File Name</th><th>size</th><th>Date/time</th></tr>" + textToDisplay;
+                textToDisplay ='<table style="width:100%" border=2>';
+                textToDisplay += "<tr><th>File Name</th><th>size</th><th>Date/time</th></tr>" 
+                textToDisplay += ctextToDisplay;
+                textToDisplay += '</table>';
+
         }
 
         _showResultOnPopup(textToDisplay);
