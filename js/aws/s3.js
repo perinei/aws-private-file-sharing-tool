@@ -133,7 +133,7 @@ function uploadToS3() {
 
     // var prefixFld = document.getElementById('bucketPrefix');
     // var prefix = prefixFld.value;
-    uploadLocation = bucket + "/" + cognitoUser
+    uploadLocation = bucket + "/" + 'cognito/retail_app_client/' + cognitoUser;
     console.log(uploadLocation);
 
     var bucket = new AWS.S3({
