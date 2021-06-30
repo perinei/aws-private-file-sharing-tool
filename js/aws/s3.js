@@ -98,7 +98,8 @@ function _showS3BucketContents() {
                 let filename = fullfilename.split('/');
                 formattedsize = formatBytes(size)
                 // ctextToDisplay += '<th><input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" ></th>';
-                ctextToDisplay += '<th>' + count+1 + '</th>';
+                var i = count + 1;
+                ctextToDisplay += '<th>' + i + '</th>';
                 ctextToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + filename[2] + '</a></th>';
                 ctextToDisplay += '<th>' + formattedsize + '</th>';
                 ctextToDisplay += '<th>' + obj.LastModified + '</th>';
@@ -115,8 +116,9 @@ function _showS3BucketContents() {
             if (count == 0)
                 textToDisplay = "You haven't uploaded anything yet.";
             else
-                textToDisplay ='<table style="width:100%" border=2>';
-                textToDisplay += "<tr><th>index</th><th>File Name</th><th>size</th><th>Date/time</th></tr>" 
+                // textToDisplay ='<table class="table" style="width:100%" border=2>';
+                textToDisplay = '<table class="table">';
+                textToDisplay += "<thead><tr><th>index</th><th>File Name</th><th>size</th><th>Date/time</th></tr></thead>";
                 textToDisplay += ctextToDisplay;
                 textToDisplay += '</table>';
 
