@@ -92,7 +92,8 @@ function init() {
             console.log(accessKeyId);
             console.log(secretAccessKey);
             console.log(sessionToken);
-            cognitoUser = idTokenJwt.sub;
+            // cognitoUser = idTokenJwt.sub;
+            cognitoUser = AWS.config.credentials.identityId;
             showS3BucketContents();
 
             // Load cognito User from local storage

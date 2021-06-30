@@ -71,7 +71,7 @@ function formatBytes(bytes, decimals) {
 }
 
 function _showS3BucketContents(prefix) {
-    prefix = 'cognito/retail_app_client/' + 'us-east-1:e074eb62-81bd-4f70-8d21-f30d51042054';
+    prefix = 'cognito/retail_app_client/' + showS3BucketContents;
     var bucket = awsConfig.bucket;
     var bucket = new AWS.S3({
         params: {
