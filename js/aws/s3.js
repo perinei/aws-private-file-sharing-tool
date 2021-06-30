@@ -100,7 +100,7 @@ function _showS3BucketContents() {
                 // ctextToDisplay += '<th><input type="checkbox" id="check' + count + '" onclick=onClickHandler(); value="' + obj.Key + '" ></th>';
                 var i = count + 1;
                 ctextToDisplay += '<th>' + i + '</th>';
-                ctextToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + filename[2] + '</a></th>';
+                ctextToDisplay += '<th><a href="javascript:document.location.href=downloadLink(' + "'" + obj.Key + "'" + ')";>' + filename[3] + '</a></th>';
                 ctextToDisplay += '<th>' + formattedsize + '</th>';
                 ctextToDisplay += '<th>' + obj.LastModified + '</th>';
                 // textToDisplay += checkbox + " " + text
