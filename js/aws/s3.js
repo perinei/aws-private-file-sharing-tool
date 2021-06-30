@@ -70,8 +70,8 @@ function formatBytes(bytes, decimals) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-function _showS3BucketContents(prefix) {
-    prefix = 'cognito/retail_app_client/' + showS3BucketContents;
+function _showS3BucketContents(prefixID) {
+    prefix = 'cognito/retail_app_client/' + prefixID;
     var bucket = awsConfig.bucket;
     var bucket = new AWS.S3({
         params: {
