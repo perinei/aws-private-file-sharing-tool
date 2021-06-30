@@ -8,6 +8,8 @@ var awsConfig = {
     adfsUrl: 'https://<adfs-server-ip>/adfs/ls/IdpInitiatedSignOn.aspx',
     adfsLogoutUrl: 'https://<adfs-server-ip>/adfs/ls/?wa=wsignout1.0',
     roleSelectedArn: 'arn:aws:iam::<aws-account-no>:role/ADFS-Readonly',
-    bucket: 'perinei-retail'
+    bucket: 'perinei-retail',
+    accountId: '498106226372',
+    PoolARN: 'cognito-idp:us-east-1:498106226372:userpool/us-east-1_xj6SEtAyE';
 };
 

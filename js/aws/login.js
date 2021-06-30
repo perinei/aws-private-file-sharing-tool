@@ -1,14 +1,30 @@
 var cognitoUser;
 
-// function _makeAWSCredentials(idToken) {
-//     var someVar = 'cognito-idp.' + awsConfig.regionName + '.amazonaws.com/' + awsConfig.userPoolId;
-//     return new AWS.CognitoIdentityCredentials({
-//         IdentityPoolId: awsConfig.identityPoolId,
+// AGP
+// function _getUserIdentityPoolId() {
+//     var params = {
+//         IdentityPoolId: awsConfig.identityPoolId, /* required */
+//         AccountId: awsConfig.accountId,
 //         Logins: {
-//             [someVar]: idToken
+//           'Amazon Cognito user pool': awsConfig.PoolARN,
+//           /* '<IdentityProviderName>': ... */
 //         }
-//     });
+//       };
+//       cognitoidentity.getId(params, function(err, data) {
+//         if (err) console.log(err, err.stack); // an error occurred
+//         else     console.log(data);           // successful response
+//       });
 // }
+
+function _makeAWSCredentials(idToken) {
+    var someVar = 'cognito-idp.' + awsConfig.regionName + '.amazonaws.com/' + awsConfig.userPoolId;
+    return new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: awsConfig.identityPoolId,
+        Logins: {
+            [someVar]: idToken
+        }
+    });
+}
 
 
 function _makeUserPool() {
@@ -84,7 +100,7 @@ function init() {
             console.log("cognitoUser1: " + cognitoUser1);
         
 
-            
+            // _getUserIdentityPoolId();
 
         }
         else{
