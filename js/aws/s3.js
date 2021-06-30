@@ -84,6 +84,7 @@ function _showS3BucketContents() {
     var checkbox = '';
     bucket.listObjects({}, function(err, data) {
         var textToDisplay = "";
+        var ctextToDisplay = "";
 
         if (err) {
             textToDisplay = 'ERROR While Fetching Bucket List\n\n' + err;
