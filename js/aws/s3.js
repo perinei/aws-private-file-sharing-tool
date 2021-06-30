@@ -54,7 +54,7 @@ function showS3BucketContents() {
 
     if (cognitoUser !== null) {
         console.log(cognitoUser);
-        _showS3BucketContents(cognitoUser);
+        _showS3BucketContents();
     } else {
         // enableButton('viewS3BucketButton', 'View Contents')
         alert("Access Denied!! Please specify your correct folder name!!");
@@ -70,8 +70,8 @@ function formatBytes(bytes, decimals) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-function _showS3BucketContents(prefixID) {
-    prefix = 'cognito/retail_app_client/' + prefixID;
+function _showS3BucketContents() {
+    prefix = awsConfig.prefix + cognitoUser;
     var bucket = awsConfig.bucket;
     var bucket = new AWS.S3({
         params: {
@@ -133,7 +133,7 @@ function uploadToS3() {
 
     // var prefixFld = document.getElementById('bucketPrefix');
     // var prefix = prefixFld.value;
-    uploadLocation = bucket + "/" + 'cognito/retail_app_client/' + cognitoUser;
+    uploadLocation = bucket + "/" + awsConfig.prefix + cognitoUser;
     console.log(uploadLocation);
 
     var bucket = new AWS.S3({
