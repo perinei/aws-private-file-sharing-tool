@@ -17,6 +17,7 @@ var cognitoUser;
 // }
 
 function _makeAWSCredentials(idToken) {
+    console.log("_makeAWSCredentials(idToken)");
     var someVar = 'cognito-idp.' + awsConfig.regionName + '.amazonaws.com/' + awsConfig.userPoolId;
     return new AWS.CognitoIdentityCredentials({
         IdentityPoolId: awsConfig.identityPoolId,
@@ -28,6 +29,7 @@ function _makeAWSCredentials(idToken) {
 
 
 function _makeUserPool() {
+    console.log("_makeUserPool()");
     var poolData = {
         UserPoolId: awsConfig.userPoolId,
         ClientId: awsConfig.clientId
@@ -57,7 +59,7 @@ function init() {
     var idTokenJwt = jwt_decode(idToken);
     console.log(idTokenJwt);
     console.log("email:" + idTokenJwt.email);
-    console.log("email:" + idTokenJwt.sub);
+    console.log("userpoolid:" + idTokenJwt.sub);
 
     if (paramters.has('access_token')) {
         console.log(true);
@@ -80,6 +82,7 @@ function init() {
     AWS.config.credentials = creds;
     console.log('---------Identity ID --------------')
     console.log(AWS.config.credentials.identityId);
+    console.log(AWS.config.credentials.cognitoUser);
 
     creds.get(function (err) {
         if (!err) {
@@ -94,15 +97,16 @@ function init() {
             console.log(sessionToken);
             // cognitoUser = idTokenJwt.sub;
             cognitoUser = AWS.config.credentials.identityId;
-            showS3BucketContents();
+            
 
             // Load cognito User from local storage
             var userPool = _makeUserPool();
             console.log("userPool:" + userPool);
             cognitoUser1 = userPool.getCurrentUser();
             console.log("cognitoUser1: " + cognitoUser1);
-        
 
+            console.log("call show S3 content");
+            showS3BucketContents();
             // _getUserIdentityPoolId();
 
         }

@@ -38,6 +38,7 @@ function validatePassword() {
 }
 
 function showS3BucketContents() {
+    console.log("showS3BucketContents");
     // disableButton('viewS3BucketButton')
     var prefixFld = document.getElementById('bucketPrefix');
     var prefix = prefixFld.value;

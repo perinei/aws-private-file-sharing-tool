@@ -28,29 +28,15 @@
    <div class="container" id="loginDiv">
       <!-- <h3><a href="https://retail.auth.us-east-1.amazoncognito.com/login?client_id=30r03gkfc6s448eqgrautmdmj9&response_type=token&scope=aws.cognito.signin.user.admin+email+openid&redirect_uri=https://master.d2eze0fwqc9li6.amplifyapp.com/index.html">Click here to login</a></h3> -->
       <!-- Div Showing the Post Login Menu -->
-      <div class="container" id="menuDiv">
-         <img src="images/bauerlogo.png" alt="Bauer" class="center"><button type="button" class="btn btn-danger"
-            onclick="onLogout()">Logout</button>
-      </div>
+   </div>
+   <div class="container" id="menuDiv">
+      <img src="images/bauerlogo.png" alt="Bauer" class="center"><button type="button" class="btn btn-danger"
+         onclick="onLogout()">Logout</button>
    </div>
 
-   <div class="row">
-      <div>&nbsp;</div>
-      <div><input type="hidden" class="form-control" id="bucketPrefix" placeholder="Bucket Prefix" />
-      </div>
-      <!-- <div class="col-md-3"><button class="btn btn-primary" onclick="showS3BucketContents()" id="viewS3BucketButton">View Contents</button></div> -->
-   </div>
-
-   <div class="row">
-      <div class="col-md-1">&nbsp;</div>
-      <div class="col-md-6"><input id="photoupload" type="file" class="form-control"> </div>
-      </div>
-   </div>
-
-   <div class="row">
-      <div class="col-md-1">&nbsp;</div>
-      <div class="col-md-6"><button class="btn btn-primary" onclick="uploadToS3 ()" id="uploadToS3">Upload</button>
-      </div>
+   <div class="container">
+      <input id="photoupload" type="file" class="form-control" style="width:50%"><button class="btn btn-primary"
+         onclick="uploadToS3 ()" id="uploadToS3">Upload</button>
    </div>
 
    <!-- <div class="row">
@@ -65,11 +51,18 @@
       </a>
    </div>
 
-   <div>
+   <div class="container">
       <a style="display:block" href="#">
          <!-- <div class="col-md-1">&nbsp;</div> -->
          <div id="output">
       </a>
+   </div>
+
+   <div class="row">
+      <div>&nbsp;</div>
+      <div><input type="hidden" class="form-control" id="bucketPrefix" placeholder="Bucket Prefix" />
+      </div>
+      <!-- <div class="col-md-3"><button class="btn btn-primary" onclick="showS3BucketContents()" id="viewS3BucketButton">View Contents</button></div> -->
    </div>
 </body>
 
