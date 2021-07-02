@@ -55,6 +55,7 @@ function showS3BucketContents() {
 
     if (cognitoUser !== null) {
         console.log(cognitoUser);
+        console.log("AWS.config.credentials:"+ AWS.config.credentials);
         _showS3BucketContents();
     } else {
         // enableButton('viewS3BucketButton', 'View Contents')
@@ -136,6 +137,7 @@ function _showS3BucketContents() {
 
 
 function _showResultOnPopup(textToDisplay) {
+    console.log("_showResultOnPopup(textToDisplay)");
     // enableButton('viewS3BucketButton', 'View Contents')
     document.getElementById("output").innerHTML = textToDisplay
 }
