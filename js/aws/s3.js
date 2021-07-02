@@ -121,7 +121,7 @@ function _showS3BucketContents() {
             {
                 // textToDisplay ='<table class="table" style="width:100%" border=2>';
                 textToDisplay = '<table class="table">';
-                textToDisplay += "<thead><tr><th>index</th><th>File Name</th><th>size</th><th>Date/time</th></tr></thead>";
+                textToDisplay += "<thead><tr><th>index</th><th>File Name1</th><th>size</th><th>Date/time</th></tr></thead>";
                 textToDisplay += ctextToDisplay;
                 textToDisplay += '</table>';
             }

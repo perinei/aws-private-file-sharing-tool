@@ -299,7 +299,7 @@ function _callbackOnAWSForcePasswdChange(userAttributes, requiredAttributes) {
 function onLogout() {
     console.log("onLogout()");
     localStorage.clear();
-    window.location.replace("https://retail.auth.us-east-1.amazoncognito.com/logout?client_id=30r03gkfc6s448eqgrautmdmj9&response_type=token&scope=aws.cognito.signin.user.admin+email+openid&redirect_uri=https://master.d2eze0fwqc9li6.amplifyapp.com/view.html");
+    window.location.replace("https://retail.auth.us-east-1.amazoncognito.com/logout?client_id=30r03gkfc6s448eqgrautmdmj9&response_type=token&scope=aws.cognito.signin.user.admin+email+openid&redirect_uri=http://localhost:8080/view.html");
     // AWS.config.credentials = null;
 
     // const options = {

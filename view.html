@@ -1,6 +1,7 @@
 <html>
 
 <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>S3 Upload</title>
    <script src="js/jsbn.js"></script>
    <script src="js/jsbn2.js"></script>
@@ -9,9 +10,9 @@
    <script src="js/aws-cognito-sdk.min.js"></script>
    <script src="js/amazon-cognito-identity.min.js"></script>
    <script src="js/aws-sdk.js"></script>
-   <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-   <script src="bootstrap-3.3.7-dist/js/npm.js"></script>
-   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+   <script src="bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+   <script src="bootstrap-5.0.2-dist/js/npm.js"></script>
+   <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css" />
 
    <script src="js/index.js"></script>
    <script src="js/aws/config.js"></script>
@@ -42,8 +43,13 @@
 
    <div class="row">
       <div class="col-md-1">&nbsp;</div>
-      <div class="col-md-2"><input id="photoupload" type="file" class="form-control"> </div>
-      <div><button class="btn btn-primary" onclick="uploadToS3 ()" id="uploadToS3">Upload</button>
+      <div class="col-md-6"><input id="photoupload" type="file" class="form-control"> </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-1">&nbsp;</div>
+      <div class="col-md-6"><button class="btn btn-primary" onclick="uploadToS3 ()" id="uploadToS3">Upload</button>
       </div>
    </div>
 
@@ -59,8 +65,9 @@
       </a>
    </div>
 
-   <div class="row">
+   <div>
       <a style="display:block" href="#">
+         <!-- <div class="col-md-1">&nbsp;</div> -->
          <div id="output">
       </a>
    </div>
